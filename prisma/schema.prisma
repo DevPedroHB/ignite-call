@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
@@ -17,25 +17,12 @@ model User {
   avatar_url String?
   created_at DateTime @default(now())
 
-  accounts Account[]
-  sessions Session[]
+  accounts      Account[]
+  sessions      Session[]
   timeIntervals UserTimeInterval[]
   Scheduling    Scheduling[]
 
   @@map("users")
-}
-
-model UserTimeInterval {
-  id                    String @id @default(uuid())
-  week_day              Int
-  time_start_in_minutes Int
-  time_end_in_minutes   Int
-
-  user    User   @relation(fields: [user_id], references: [id])
-  user_id String
-
-  @@map("user_time_intervals")
-  @@index([user_id])
 }
 
 model Account {
@@ -55,8 +42,8 @@ model Account {
   user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@unique([provider, provider_account_id])
-  @@map("accounts")
   @@index([user_id])
+  @@map("accounts")
 }
 
 model Session {
@@ -64,11 +51,23 @@ model Session {
   session_token String   @unique
   user_id       String
   expires       DateTime
-
   user          User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
-  @@map("sessions")
   @@index([user_id])
+  @@map("sessions")
+}
+
+model UserTimeInterval {
+  id                    String @id @default(uuid())
+  week_day              Int
+  time_start_in_minutes Int
+  time_end_in_minutes   Int
+
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
+
+  @@index([user_id])
+  @@map("user_time_intervals")
 }
 
 model Scheduling {
@@ -82,6 +81,6 @@ model Scheduling {
   user    User   @relation(fields: [user_id], references: [id])
   user_id String
 
-  @@map("schedulings")
   @@index([user_id])
+  @@map("schedulings")
 }

@@ -53,6 +53,7 @@ export function Calendar({ onDateSelected }: CalendarProps) {
   }
 
   const shortWeekDays = getWeekDays({ short: true });
+
   const currentMonth = currentDate.format("MMMM");
   const currentYear = currentDate.format("YYYY");
 

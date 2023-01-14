@@ -3,10 +3,10 @@ import { CalendarStep } from "./CalendarStep";
 import { ConfirmStep } from "./ConfirmStep";
 
 export function ScheduleForm() {
-  const [selectedDateTime, setSelectedDatetime] = useState<Date | null>(null);
+  const [selectedDateTime, setSelectedDateTime] = useState<Date | null>();
 
   function handleClearSelectedDateTime() {
-    setSelectedDatetime(null);
+    setSelectedDateTime(null);
   }
 
   if (selectedDateTime) {
@@ -18,5 +18,5 @@ export function ScheduleForm() {
     );
   }
 
-  return <CalendarStep onSelectDateTime={setSelectedDatetime} />;
+  return <CalendarStep onSelectDateTime={setSelectedDateTime} />;
 }

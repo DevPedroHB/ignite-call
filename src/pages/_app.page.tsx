@@ -18,8 +18,8 @@ export default function App({
         <DefaultSeo
           openGraph={{
             type: "website",
-            locale: "pt-BR",
-            url: "https://ignite-call-pedrohb.vercel.app/",
+            locale: "pt_BR",
+            url: "https://ignite-call-pedrohb.vercel.app",
             siteName: "Ignite Call",
           }}
         />

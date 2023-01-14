@@ -50,13 +50,14 @@ export function CalendarStep({ onSelectDateTime }: CalendarStepProps) {
       enabled: !!selectedDate,
     }
   );
+
   function handleSelectTime(hour: number) {
-    const dateTime = dayjs(selectedDate)
+    const dateWithTime = dayjs(selectedDate)
       .set("hour", hour)
       .startOf("hour")
       .toDate();
 
-    onSelectDateTime(dateTime);
+    onSelectDateTime(dateWithTime);
   }
 
   return (
