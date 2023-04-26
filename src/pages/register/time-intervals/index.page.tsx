@@ -87,9 +87,11 @@ export default function TimeIntervals() {
       ],
     },
   });
+
   const intervals = watch("intervals");
   const router = useRouter();
   const weekDays = getWeekDays();
+
   const { fields } = useFieldArray({
     control,
     name: "intervals",

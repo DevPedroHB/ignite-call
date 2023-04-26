@@ -31,7 +31,7 @@ export function ClaimUsernameForm() {
   async function handleClaimUsername(data: ClaimUsernameFormData) {
     const { username } = data;
 
-    router.push(`/register?username=${username}`);
+    await router.push(`/register?username=${username}`);
   }
 
   return (
@@ -48,7 +48,6 @@ export function ClaimUsernameForm() {
           <ArrowRight />
         </Button>
       </Form>
-
       <FormAnnotation>
         <Text size="sm">
           {errors.username
