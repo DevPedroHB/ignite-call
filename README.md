@@ -92,7 +92,7 @@ Here are the main features of the project.
 
 ## 📎 Links
 
-- Deploy on [Netlify](https://www.netlify.com/): Coming soon.
+- Deploy on [Netlify](https://www.netlify.com/): https://ignite-call-pedrohb.netlify.app
 - Repository: https://github.com/DevPedroHB/ignite-call
 
 ## 🔰 Versioning
